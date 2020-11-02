@@ -15,12 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.apps import apps
-from django.urls import include, path
+from django.urls import include, path , re_path
+from .api import router
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(apps.get_app_config('oscar').urls[0])),
     path("api/", include("oscarapi.urls")),
-
+     path('api/', include(router.urls)),
 ]
