@@ -83,8 +83,16 @@ INSTALLED_APPS = [
     'sorl.thumbnail',
     'django_tables2',
     'corsheaders',
+    'rest_framework.authtoken',
+    'users'
 ]
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'nshankhydhar@gmail.com'
+EMAIL_HOST_PASSWORD = 'deviltheking'
 
 
 SITE_ID=1
@@ -100,7 +108,6 @@ MIDDLEWARE = [
     'oscar.apps.basket.middleware.BasketMiddleware',
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
     'corsheaders.middleware.CorsMiddleware',
-
 ]
 
 ROOT_URLCONF = 'test1.urls'
@@ -135,7 +142,6 @@ HAYSTACK_CONNECTIONS = {
     },
 }
 
-# Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
@@ -144,6 +150,7 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
 
 
 # Password validation
